@@ -3,3 +3,13 @@ title: "Bivariate Viz"
 ---
 
 Use this file to generate a professional looking **bivariate** visualization.  The visualization will not perfect the first time but you are expected to improve it throughout the semester especially after covering advanced topics such as effective viz.
+#Bi-viz
+```{r}
+library(tidyverse)
+elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
+#| fig-cap: "The comparing of elections in blue, red and purple states in 2020"
+#| fig-alt: "This bar plot shows who won in each county in 2020, and comapre outcomes in blue,purple and red statese,from https://www.270towin.com/content/blue-and-red-states"
+ggplot(elections, aes(x = historical, fill = winner_20)) +
+  geom_bar(position = "dodge")+
+  labs(x="historical",y="count",color="winner_20")
+```

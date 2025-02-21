@@ -21,7 +21,7 @@ execute:
 hikes <- read.csv("https://mac-stat.github.io/data/high_peaks.csv")
 ```
 
-:
+
 
 
 #### EXAMPLE 2 {-}

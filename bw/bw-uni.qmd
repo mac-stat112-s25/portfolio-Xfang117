@@ -3,3 +3,13 @@ title: "Univariate Viz"
 ---
 
 Use this file to generate a professional looking **univariate** visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+# the uni-viz
+```{r}
+library(tidyverse)
+hikes <- read.csv("https://mac-stat.github.io/data/high_peaks.csv")
+#| fig-cap: "The relationship between elevation and hikes"
+#| fig-alt: "This density plot shows the distribution of elevation and hikers, and it generally shows most hikes are moderate,data from https://mac-stat.github.io/data/high_peaks.csv"
+ ggplot(hikes,aes(x = elevation)) +
+  geom_density(fill="orange",color="blue")+
+   labs(x="elevation of hikes",y="density of hikes")
+```

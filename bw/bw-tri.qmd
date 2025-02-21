@@ -3,3 +3,14 @@ title: "Trivariate Viz"
 ---
 
 Use this file to generate a professional looking **trivariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+#Tri-viz
+```{r}
+library(tidyverse)
+education <- read.csv("https://mac-stat.github.io/data/sat.csv")
+#| fig-cap: "The relationship of SAT score,the percentage of students have the SAT and the expend in different states"
+#| fig-alt: "This point plot shows in general,the higher expenditure means higher SAT score, including the difference of percentages of students take SAT,data from https://mac-stat.github.io/data/sat.csv"
+ggplot(education, aes(y = sat, x = expend, color = fracCat)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")+
+  labs(x="The expenditure and the salary of teachers in the state",y="The average SAT score", color="The relative percentage of students have the SAT")
+```
