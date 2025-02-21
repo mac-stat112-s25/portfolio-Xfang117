@@ -227,13 +227,6 @@ geom_density()
 
 
 ### Exercise 1: Quantitative vs Quantitative Intuition Check {.unnumbered}
-
-::: {.callout-important title="Be Quick"}
-
-Don't spend more than 3 minutes on this! 
-
-:::
-
 Below is a **scatterplot** of the Republican support in 2020 vs 2016. Notice that:
 
 -   both variables are quantitative, and get their own axes
@@ -246,10 +239,6 @@ Try to replicate this using `ggplot()`. THINK:
 
 ![](https://mac-stat.github.io/images/112/scatterplot_demo.png){width="50%"}
 
-```{r}
-ggplot(elections,aes(x=repub_pct_16)) +
-geom_()
-```
 
 
 ### Exercise 2: 2 Quantitiative Variables {.unnumbered}

@@ -15,42 +15,23 @@ execute:
 
 #### EXAMPLE 1 {-}
 
-The data below includes information on hiking trails in the [46 "high peaks" in the Adirondack mountains](https://www.adirondack.net/hiking/high-peaks/) of Northeastern New York state. This includes data on the hike's highest `elevation` (feet), vertical `ascent` (feet), `length` (miles), `time` in hours that it takes to complete, and difficulty `rating`. Open this data in a viewer, through the Environment tab or by typing `View(hikes)` in the *console*.
 
 ```{r}
 # Import data
 hikes <- read.csv("https://mac-stat.github.io/data/high_peaks.csv")
 ```
 
-::: {.callout-warning title="Discussion"}
-
-1. What is the pattern / trend of `elevation` of hiking trails?
-2. What is the relationship between a hike's `elevation` and typical `time` it takes to summit / reach the top?
-
-:::
+:
 
 
 #### EXAMPLE 2 {-}
 
-Look at the plot below taken from a story reported by [this New York Times article (html)](https://www.nytimes.com/2024/01/09/climate/2023-warmest-year-record.html).
 
-::: {.callout-warning title="Discussion"}
 
-Suppose that the article tried telling the story *without* using data viz, What would that story be like?
-
-:::
 
 ![](https://mac-stat.github.io/images/112/nyt_temperature_viz.png)
 
 
-#### Benefits of Visualization {-}
-
--   Understand what we're working with from
-    -   scales & typical outcomes, to
-    -   outliers, i.e. unusual cases, to
-    -   patterns & relationships
--   Refine research questions & inform next steps of our analysis.
--   Communicate our findings and tell a story.
 
 
 ### Components of Data Graphics
@@ -64,88 +45,11 @@ Data viz is the process of *mapping* data to different plot components. For exam
 | 1           | 2020-30 | 2023 | 1/23 |      1.2      |
 | 2           | 1940-60 | 1945 | 3/45 |     -0.05     |
 
-::: {.callout-warning title="Discussion"}
 
-Write down step-by-step directions for using a data table like the one above to create the temperature visualization. A computer is your audience, thus be as precise as possible, but trust that the computer can find the exact numbers if you tell it where.
-
-:::
-
-
-#### COMPONENTS OF GRAPHICS {-}
-
-In data viz, we essentially start with a blank canvas and then map data onto it. There are multiple possible *mapping components*. Some basics from [Wickham](https://ggplot2-book.org/introduction) (which goes into more depth):
-
--   **a frame, or coordinate system**\
-    The variables or features that define the axes and gridlines of the canvas.
-
--   **a layer**\
-    The geometric elements (e.g. lines, points) we add to the canvas to represent either the data points themselves or patterns among the data points. Each type of geometric element is a separate layer. These geometric elements are sometimes called "geoms" or "glyphs" (like *heiroglyph*!)
-
--   **scales**\
-    The aesthetics we might add to geometric elements (e.g. color, size, shape) to incorporate additional information about data scales or groups.
-
--   **faceting**\
-    The splitting up of the data into multiple subplots, or facets, to examine different groups within the data.
-
--   **a theme**\
-    Additional controls on the "finer points" of the plot aesthetics, (e.g. font type, background, color scheme).
-
-
-
-#### EXAMPLE {-}
-
-In the NYT graphic, the data was mapped to the plot as follows:
-
--   **frame**: x-axis = date, y-axis = temp
--   **layers:** add one line per year, add dots for each month in 2023
--   **scales:** color each line by decade
--   **faceting:** none
--   **a theme:** NYT style
-
-
-### ggplot + R packages
-
-We will use the powerful `ggplot` tools in R to build (most of) our viz. The `gg` here is short for the **"grammar of graphics"**. These tools are developed in a way that:
-
--   recognizes that code is communication (it has a grammar!)
--   connects code to the components / philosophy of data viz
-
-
-
-#### EXAMPLES: ggplot in the News {-}
-
--   [MPR journalist David Montgomery](http://dhmontgomery.com/portfolio/): [R data viz](https://github.com/dhmontgomery/personal-work/tree/master/theme-mpr)
--   [BBC R data viz](https://bbc.github.io/rcookbook/)
-
-
-To use these tools, we must first get them into R/RStudio! Recall that R is *open source*. Anybody can build R tools and share them through special R **packages**. The **tidyverse package** compiles a set of individual packages, including `ggplot2`, that share a common grammar and structure. Though the learning curve can be steep, this grammar is intuitive and generalizable once mastered. Image source: [Posit BBC on X](https://twitter.com/posit_pbc/status/1145592633823244289)
-
-![](../images/tidyverse.jpg)
-
-To *install* this package, do the followings: RStudiio --\> "Packages" pane --\> click "Install" --\> type the name of the package (`tidyverse`) and make sure the "Install dependencies" box is checked --\> and click "Install".  
-
-::: {.callout-note title="Note"}
-
-Unless the authors of a package add updates, you only need to do this once all semester.
-
-:::
-
-
-::: {.callout-note title="Mac's RStudio server"}
-
-If you're working on Mac's RStudio server, `tidyverse` is already installed on the server! Check this 2 ways:
-
--   Type `library(tidyverse)` in your console. If you don't get an error, it's installed!
--   Check that it appears in the list under the "Packages" pane.
-
-:::
 
 
 
 ## Exercises
-
-{{< include activity-instructions.qmd >}}
-
 
 ```{r}
 #| eval: true
