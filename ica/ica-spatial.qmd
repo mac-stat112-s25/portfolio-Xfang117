@@ -657,7 +657,7 @@ head(elections_by_counties)
 
 This just means that we have to wrangle the data so that it can communicate with the background map.
 
-```{r}
+```{r bw-spat}
 # Add 0's at the beginning of any fips_code that's fewer than 5 numbers long
 # Don't worry about the syntax
 elections_by_counties <- elections_by_counties |> 
