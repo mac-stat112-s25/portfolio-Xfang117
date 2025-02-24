@@ -4,7 +4,7 @@ title: "Spatial Viz"
 
 Use this file to generate a professional looking **spatial** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
 #Spa-Viz
-```{r}
+```{r Spa-viz}
 library(tidyverse)
 #| fig-cap: "The percentages of supporting republicans based on counties"
 #| fig-alt: "It shows that the Republican vote is very strong in the large central areas, but the Republican vote is generally low in the coastal areas,from https://www.270towin.com/content/blue-and-red-states"
