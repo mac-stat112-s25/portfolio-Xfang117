@@ -4,4 +4,4 @@ format: html
 ---
 
 ![](../pictures%20of%20summary%20sheets/IMG_5101.pdf){width=800 height=1200}
-![](../pictures%20of%20summary%20sheets/IMG_5102.pdf){width=800 height=1200}
+
