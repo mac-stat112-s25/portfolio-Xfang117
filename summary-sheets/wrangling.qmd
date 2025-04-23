@@ -3,3 +3,4 @@ title: "wrangling"
 format: html
 ---
 
+![](../pictures%20of%20summary%20sheets/IMG_5103.pdf){width=800 height=1200}
