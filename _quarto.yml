@@ -51,10 +51,14 @@ format:
     code-link: true
     code-line-numbers: true
     code-tools: true
+    code-fold: true
 
 execute:
-  cache: false
-  freeze: auto
+  # cache: false
+  # freeze: false
+  error: false
+  warning: false
+  echo: true
 
 editor: 
   markdown:

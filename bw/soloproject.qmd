@@ -1,0 +1,36 @@
+---
+title: "soloproject"
+format: html
+---
+```{r}
+library(tidyverse)
+library(tidyr)
+library(dplyr)
+library(sf)
+world_shapes<-read_sf("../dataverse_files/province.shp")
+China_gdp<-read.csv("../dataverse_files/China-gdp.csv")
+China_gdp_2020 <- China_gdp |>
+  filter(X == 2020)
+world_shapes<-world_shapes |>
+  mutate(province_clean = gsub("( Sheng| Shi| Zizhiqu)", "", NAME_PINGY))
+
+
+gdp_long <- China_gdp_2020 |>
+  pivot_longer(
+    cols = -X,        
+    names_to = "province",
+    values_to = "gdp")
+
+gdp_long <- world_shapes |>
+  left_join(gdp_long, by = c("province_clean" = "province"))
+
+ggplot(data=gdp_long)+
+  geom_sf(aes(fill = gdp), color = "white") +
+  scale_fill_viridis_c(option = "magma", direction = -1) +
+  theme_minimal() +
+  labs(title = "2020_China GDP", fill = "GDP（100_million_Yuan）")
+```
+
+
+
+
