@@ -3,3 +3,18 @@ title: "exam-1"
 format: html
 ---
 
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+tuesdata<- tt_load("2020-02-18") #Add data
+fc<-tuesdata$food_consumption
+```
+```{r}
+nrow(fc)
+str(fc)
+head(fc)
+```
+```{r}
+
+```
+
