@@ -2,4 +2,5 @@
 title: "visualization"
 format: html
 ---
-![](../pictures of summary sheets/IMG_5101.jpeg)
+
+![](../pictures%20of%20summary%20sheets/IMG_5101.pdf){width=800 height=1200}
