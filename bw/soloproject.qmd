@@ -27,10 +27,11 @@ gdp_long <- world_shapes |>
 ggplot(data=gdp_long)+
   geom_sf(aes(fill = gdp), color = "white") +
   scale_fill_viridis_c(option = "magma", direction = -1) +
-  theme_minimal() +
-  labs(title = "2020_China GDP", fill = "GDP（100_million_Yuan）")
+  theme_void() +
+  labs(title = "2020 China GDP for 100 millions yuan based on province", fill ="", caption = "source: https://www.kaggle.com/datasets/concyclics/chinas-gdp-in-province madeby: Xi Fang")
+
 ```
 
-
+The economic development of China shows a great imblance between different provinces.
 
 

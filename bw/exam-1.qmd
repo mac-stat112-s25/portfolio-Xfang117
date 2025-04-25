@@ -2,19 +2,38 @@
 title: "exam-1"
 format: html
 ---
-
+1. Install packages and load packages
+2. Get data
 ```{r}
 library(tidytuesdayR)
 library(tidyverse)
 tuesdata<- tt_load("2020-02-18") #Add data
 fc<-tuesdata$food_consumption
 ```
+
+3.understand data
 ```{r}
 nrow(fc)
 str(fc)
 head(fc)
 ```
+7. Understand variables individually
 ```{r}
-
+ggplot(fc,aes(y=country))+
+  geom_bar()
+ggplot(fc,aes(x=food_category))+
+  geom_bar()
+ggplot(fc,aes(x=consumption))+
+  geom_density()
 ```
+8. Understand consumption
+```{r}
+ggplot(fc, aes(x=food_category, y=consumption))+
+  geom_density()
+ggplot(fc, aes(x=country, y=consumption))+
+  geom_density()
+```
+
+
+
 
