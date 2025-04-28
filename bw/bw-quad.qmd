@@ -5,10 +5,11 @@ title: "Quadvariate Viz"
 Use this file to generate a professional looking **quadvariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
 #Quad-viz
 ```{r}
-library(tidyverse)
-education <- read.csv("https://mac-stat.github.io/data/sat.csv")
 #| fig-cap: "The relationship of teachers'salary with the SAT score"
 #| fig-alt: "This point plot shows ,in general,teacher'salary has no direct relationship with the SAT score, the students in the states with lower participation has higher score is caused by the selecting effect,data from https://mac-stat.github.io/data/sat.csv"
+library(tidyverse)
+education <- read.csv("https://mac-stat.github.io/data/sat.csv")
+
 ggplot(education, aes(y = sat, x = ratio, color = salary)) + 
   geom_point() + 
   geom_smooth(method = "lm")+
