@@ -31,19 +31,29 @@ book:
       - bw/bw-quad.qmd
       - bw/bw-spatial.qmd
       - bw/soloproject.qmd
+      - bw/exam-1.qmd
+      - bw/exam-2.qmd
       
-
+      
+    - part: "Summary Sheets"
+      chapters: 
+      - summary-sheets/visualization.qmd
+      - summary-sheets/wrangling.qmd
+      
     - part: "In-class Activities"
       chapters: 
       - ica/ica-uni.qmd
       - ica/ica-bi.qmd
       - ica/ica-multi.qmd
       - ica/ica-spatial.qmd
+      - ica/ica-wrag.qmd
+      - ica/ica-reshaping.qmd
+      - ica/ica-joining.qmd
+      - ica/ica-factors.qmd
+      - ica/ica-string.qmd
+      - ica/ica-dataimport.qmd
       
-    - part: "Summary Sheets"
-      chapters: 
-      - summary-sheets/visualization.qmd
-      - summary-sheets/wrangling.qmd
+    
    
 
 format:

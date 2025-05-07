@@ -3,6 +3,7 @@ title: "soloproject"
 format: html
 ---
 ```{r}
+#| fig-cap: "The econic develop situation in China"
 library(tidyverse)
 library(tidyr)
 library(dplyr)
@@ -32,6 +33,6 @@ ggplot(data=gdp_long)+
 
 ```
 
-The economic development of China shows a great imblance between different provinces.
+The economic development of China shows a great imblance between different provinces.In the chart, we can see that Jiangsu and Guangdong provinces have gdp far exceeding that of other provinces. This is inseparable from two important reasons: one is the geographical advantage, and the other is their proximity to a developed economic center. First, take Guangdong Province as an example. Its proximity to the intersection of the Indian Ocean and the Pacific Ocean has brought about a huge amount of shipping, promoting economic development. At the same time, its proximity to Hong Kong, a developed economic and trade city, provides more opportunities. Jiangsu, on the other hand, has ensured sufficient Commodity Exchange through trade with Japan, South Korea and the Pacific Ocean, which has vigorously developed an ocean-centered economy. However, in addition to this, Jiangsu also has a huge river flow, which has played a significant role in both international trade and the domestic market. At the same time, just like Guangzhou Province, Jiangsu also relies on a highly developed economic center like Shanghai, which provides more job opportunities for Jiangsu. While understanding the development of these two cities, we realize that those inland provinces lack such opportunities, and therefore their economic development is slower. This is a problem worthy of people's attention.
 
 

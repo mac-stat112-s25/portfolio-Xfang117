@@ -3,3 +3,101 @@ title: "exam-2"
 format: html
 ---
 
+1.load package
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(rnaturalearth)
+library(sf)
+```
+
+2. load data
+```{r}
+tuesdata<-tt_load('2020-02-18')
+fc<-tuesdata$food_consumption
+```
+3. inspect data
+```{r}
+str(fc)
+head(fc,22)
+```
+4. answer: selecet
+answer: The name of food is too long
+5. Fix the categroy variable
+```{r}
+library(dplyr)
+
+fc <- fc %>%
+  mutate(food_category = case_when(
+    food_category == "Lamb & Goat" ~ "Lamb",
+    food_category == "Milk - inc. cheese" ~ "Milk",
+    food_category == "Wheat and Wheat Products" ~ "Wheat",
+    food_category == "Nuts inc. Peanut Butter" ~ "Nuts",
+    TRUE ~ food_category  # 默认保留其他未列出的原始名称
+  ))
+
+```
+6. MOST consume countries
+
+```{r}
+top5_countries <- fc %>%
+  group_by(country) %>%
+  summarise(total_consumption = sum(consumption, na.rm = TRUE)) %>%
+  arrange(desc(total_consumption)) %>%
+  slice_head(n = 5)
+
+top5_countries
+```
+6.3 the most appropriate viz is bar
+
+7. Most consuming countries of each food
+```{r}
+library(dplyr)
+
+top_country_per_food <- fc %>%
+  group_by(food_category, country) %>%
+  summarise(total_consumption = sum(consumption, na.rm = TRUE), .groups = "drop_last") %>%
+  slice_max(order_by = total_consumption, n = 1, with_ties = FALSE) %>%
+  ungroup()
+
+top_country_per_food
+
+```
+7.3 a horizontal bar chat is most suitable
+
+8. consumption for each food
+```{r}
+library(dplyr)
+
+food_consumption_per_country <- fc %>%
+  group_by(food_category, country) %>%
+  summarise(total_consumption = sum(consumption, na.rm = TRUE), .groups = "drop")
+
+food_consumption_per_country
+
+```
+
+9. Viz1: 1: choose the function of having a map 2:choose one coloum name from a geometry data 3: choose the co2 from fcc 4: join the co2 to the name of the country data
+
+10. Viz2: 1234: change the name of the countries in the data, fix the variable 5. pivot wider, make the data of food_category and consumption more wide 6. choose the NA in the data 7. pivot longer make it more long 
+
+the problem of the viz 2 is the category of food varies a lot, which makes the viza less useful
+
+11. Food consumption statistics
+
+```{r}
+library(dplyr)
+
+consumption_stats <- fc %>%
+  group_by(food_category) %>%
+  summarise(
+    min_consumption = min(consumption, na.rm = TRUE),
+    max_consumption = max(consumption, na.rm = TRUE),
+    range_consumption = max_consumption - min_consumption
+  )
+
+consumption_stats
+
+```
+!2. Viz 3
+ It can be nehanced by also considered the population of each countries.

@@ -33,7 +33,23 @@ ggplot(fc, aes(x=food_category, y=consumption))+
 ggplot(fc, aes(x=country, y=consumption))+
   geom_density()
 ```
-
+9. Answering Grand RQ
+```{r}
+ggplot(fc, aes(x = food_category, y = country, size = consumption, color = food_category)) +
+  geom_point(alpha = 0.7) +
+  scale_size(range = c(1, 10)) +
+  labs(
+    title = "Consumption of Each Food Category in Each Country",
+    x = "Food Category",
+    y = "Country",
+    size = "Consumption"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "bottom"
+  )
+```
 
 
 
