@@ -1,5 +1,5 @@
 ---
-title: "Solo Project: The imbalance econimic development of China"
+title: "Solo Project"
 format: html
 ---
 ```{r}

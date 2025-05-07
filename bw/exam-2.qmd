@@ -1,5 +1,5 @@
 ---
-title: "exam2 the wrangling of data"
+title: "exam 2"
 format: html
 ---
 
