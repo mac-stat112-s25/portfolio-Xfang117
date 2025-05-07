@@ -1,5 +1,5 @@
 ---
-title: "exam-1"
+title: "exam1 the data visualization"
 format: html
 ---
 1. Install packages and load packages

@@ -1,9 +1,9 @@
 ---
-title: "soloproject"
+title: "Solo Project: The imbalance econimic development of China"
 format: html
 ---
 ```{r}
-#| fig-cap: "The econic develop situation in China"
+#| fig-cap: "The imbalance econic develop situation in China"
 library(tidyverse)
 library(tidyr)
 library(dplyr)
