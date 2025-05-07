@@ -25,6 +25,7 @@ In the previous class, we started discussing some considerations in working with
     When working with character strings, we might want to detect, replace, or extract certain *patterns*. For example, recall our data on `courses`:
 
 ```{r echo = FALSE}
+library(tidyverse)
 courses_old <- read.csv("https://mac-stat.github.io/data/courses.csv")
 
 # Check out the data

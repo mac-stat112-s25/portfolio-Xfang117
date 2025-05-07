@@ -15,6 +15,7 @@ code-fold: false
 Consider the following (made up) data on students and course enrollments:
 
 ```{r}
+library(tidyverse)
 students_1 <- data.frame(
   student = c("A", "B", "C"),
   class = c("STAT 101", "GEOL 101", "ANTH 101")
@@ -52,7 +53,7 @@ First, consider the following:
 
 ## Exercises
 
-{{< include activity-instructions.qmd >}}
+
 
 ### Exercise 1: Where are my keys? {.unnumbered}
 
@@ -61,6 +62,7 @@ First, consider the following:
 Define two new datasets, with different students and courses:
 
 ```{r}
+
 students_2 <- data.frame(
   student = c("D", "E", "F"),
   class = c("COMP 101", "BIOL 101", "POLI 101")

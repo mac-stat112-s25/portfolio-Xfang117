@@ -19,15 +19,9 @@ code-fold: false
 
 ## Exercises
 
-{{< include activity-instructions.qmd >}}
+
 
 ### Exercise 1: `select` Practice {-}
-
-
-Use `select()` to create a simplified dataset that we'll use throughout the exercises below.
-
--   Store this dataset as `elections_small`.
--   Only keep the following variables: `state_name`, `county_name`, `total_votes_20`, `repub_pct_20`, `dem_pct_20`, `total_votes_16`, `dem_pct_16`
 
 ```{r}
 # Define elections_small
@@ -193,11 +187,6 @@ Let's now combine these verbs into a pipe series!
 
 #### Part a {-}
 
-::: {.callout-important title="Think then Run"}
-
-BEFORE running the below chunk, what do you think it will produce?
-
-:::
 
 ```{r}
  elections_small |> 
@@ -220,7 +209,7 @@ BEFORE trying, what do you think will happen if you change the order of filter a
 :::
 
 ```{r}
- Now try it. Change the order of filter and arrange below.
+
  elections_small |> 
    filter(state_name == "Wisconsin",
           repub_pct_20 < dem_pct_20) |> 

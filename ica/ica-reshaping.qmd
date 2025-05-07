@@ -24,6 +24,7 @@ Consider data on a sleep study in which subjects received only 3 hours of sleep 
 [^10-reshaping-data-1]: Gregory Belenky, Nancy J. Wesensten, David R. Thorne, Maria L. Thomas, Helen C. Sing, Daniel P. Redmond, Michael B. Russo and Thomas J. Balkin (2003) Patterns of performance degradation and restoration during sleep restriction and subsequent recovery: a sleep dose-response study. Journal of Sleep Research 12, 1–12.
 
 ```{r}
+library(tidyverse)
 sleep_wide <- read.csv("https://mac-stat.github.io/data/sleep_wide.csv")
 
 head(sleep_wide)
@@ -64,7 +65,6 @@ To plot reaction time by day for each subject, we need to reshape the data into 
 Use `pivot_longer()` to create the long-format dataset above. Show the first 3 lines (`head(3)`), which should be *similar* to those above. Follow-up: Thinking forward to plotting reaction time vs day for each subject, what would you like to fix / change about this dataset?
 
 ```{r}
-# For cols, try 2 appproaches: using - and starts_with
 sleep_wide |>
   pivot_longer(cols = -Subject, names_to = "day", values_to = "reaction_time")
 ```
