@@ -9,20 +9,12 @@ library(tidytuesdayR)
 library(tidyverse)
 library(rnaturalearth)
 library(sf)
-```
-
-2. load data
-```{r}
 tuesdata<-tt_load('2020-02-18')
 fc<-tuesdata$food_consumption
 ```
-3. inspect data
-```{r}
-str(fc)
-head(fc,22)
-```
-4. answer: selecet
-answer: The name of food is too long
+
+
+
 5. Fix the categroy variable
 ```{r}
 library(dplyr)
@@ -37,7 +29,7 @@ fc <- fc %>%
   ))
 
 ```
-6. MOST consume countries
+6. Research question 1 waht are the most consume countries
 
 ```{r}
 top5_countries <- fc %>%
@@ -61,9 +53,9 @@ ggplot(top5_countries, aes(x = reorder(country, total_consumption), y = total_co
   theme(legend.position = "none")
 
 ```
-6.3 the most appropriate viz is bar
 
-7. Most consuming countries of each food
+
+7. Research question 2 waht are the most consuming countries of each food
 ```{r}
 library(dplyr)
 
@@ -87,9 +79,9 @@ ggplot(top_country_per_food, aes(x = total_consumption, y = reorder(food_categor
   theme_minimal(base_size = 12)
 
 ```
-7.3 a horizontal bar chat is most suitable
 
-8. consumption for each food
+
+8. Research question 3 what is the consumption for each food
 ```{r}
 library(dplyr)
 
@@ -111,11 +103,6 @@ ggplot(food_consumption_per_country, aes(x = reorder(food_category, total_consum
 
 ```
 
-9. Viz1: 1: choose the function of having a map 2:choose one coloum name from a geometry data 3: choose the co2 from fcc 4: join the co2 to the name of the country data
-
-10. Viz2: 1234: change the name of the countries in the data, fix the variable 5. pivot wider, make the data of food_category and consumption more wide 6. choose the NA in the data 7. pivot longer make it more long 
-
-the problem of the viz 2 is the category of food varies a lot, which makes the viza less useful
 
 11. Food consumption statistics
 
@@ -133,5 +120,3 @@ consumption_stats <- fc %>%
 consumption_stats
 
 ```
-!2. Viz 3
- It can be nehanced by also considered the population of each countries.
