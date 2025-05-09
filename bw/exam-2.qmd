@@ -47,6 +47,19 @@ top5_countries <- fc %>%
   slice_head(n = 5)
 
 top5_countries
+
+
+ggplot(top5_countries, aes(x = reorder(country, total_consumption), y = total_consumption, fill = country)) +
+  geom_col() +
+  coord_flip() +  # Horizontal bar chart for readability
+  labs(
+    title = "Top 5 Countries by Total Food Consumption",
+    x = "Country",
+    y = "Total Consumption"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
 ```
 6.3 the most appropriate viz is bar
 
@@ -62,6 +75,17 @@ top_country_per_food <- fc %>%
 
 top_country_per_food
 
+ggplot(top_country_per_food, aes(x = total_consumption, y = reorder(food_category, total_consumption), color = country)) +
+  geom_point(size = 4) +
+  geom_segment(aes(x = 0, xend = total_consumption, y = food_category, yend = food_category), color = "gray") +
+  labs(
+    title = "Top Consuming Country for Each Food Category",
+    x = "Consumption",
+    y = "Food Category",
+    color = "Country"
+  ) +
+  theme_minimal(base_size = 12)
+
 ```
 7.3 a horizontal bar chat is most suitable
 
@@ -74,6 +98,16 @@ food_consumption_per_country <- fc %>%
   summarise(total_consumption = sum(consumption, na.rm = TRUE), .groups = "drop")
 
 food_consumption_per_country
+
+ggplot(food_consumption_per_country, aes(x = reorder(food_category, total_consumption), y = total_consumption)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Total Global Consumption by Food Category",
+    x = "Food Category",
+    y = "Total Consumption"
+  ) +
+  theme_minimal(base_size = 12)
 
 ```
 
