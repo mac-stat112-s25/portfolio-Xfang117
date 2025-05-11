@@ -37,11 +37,7 @@ Recall the "logical comparison operators" we can use to `filter()` our data:
 
 #### Part a {.unnumbered}
 
-::: {.callout-tip title="Commenting/Uncommenting Code"}
 
-To comment/uncomment several lines of code at once, highlight them then click <kbd>ctrl/cmd</kbd>+<kbd>shift</kbd>+<kbd>c</kbd>.
-
-:::
 
 ```{r}
 # Create a dataset with just Adelie and Chinstrap using %in%
