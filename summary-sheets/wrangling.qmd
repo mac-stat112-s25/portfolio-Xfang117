@@ -1,5 +1,5 @@
 ---
-title: "wrangling"
+title: "Wrangling"
 format: html
 ---
 

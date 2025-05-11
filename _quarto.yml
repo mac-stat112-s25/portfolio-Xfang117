@@ -47,6 +47,7 @@ book:
       - ica/ica-multi.qmd
       - ica/ica-spatial.qmd
       - ica/ica-wrag.qmd
+      - ica/ica-dates.qmd
       - ica/ica-reshaping.qmd
       - ica/ica-joining.qmd
       - ica/ica-factors.qmd

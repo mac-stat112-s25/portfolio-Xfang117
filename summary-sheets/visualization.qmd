@@ -1,5 +1,5 @@
 ---
-title: "visualization"
+title: "Visualization"
 format: html
 ---
 
