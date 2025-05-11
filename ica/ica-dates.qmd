@@ -19,7 +19,7 @@ code-fold: false
 
 ## Exercises Part 1: Same Verbs, New Tricks
 
-{{< include activity-instructions.qmd >}}
+
 
 ### Exercise 1: More Filtering {.unnumbered}
 
