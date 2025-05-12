@@ -9,6 +9,8 @@ library(tidytuesdayR)
 library(tidyverse)
 library(rnaturalearth)
 library(sf)
+library(dplyr)
+library(rnaturalearthdata)
 tuesdata<-tt_load('2020-02-18')
 fc<-tuesdata$food_consumption
 ```
@@ -17,7 +19,7 @@ fc<-tuesdata$food_consumption
 
 5. Fix the categroy variable
 ```{r}
-library(dplyr)
+
 
 fc <- fc %>%
   mutate(food_category = case_when(
@@ -57,49 +59,46 @@ ggplot(top5_countries, aes(x = reorder(country, total_consumption), y = total_co
 
 7. Research question 2 waht are the most consuming countries of each food
 ```{r}
-library(dplyr)
-
-top_country_per_food <- fc %>%
-  group_by(food_category, country) %>%
-  summarise(total_consumption = sum(consumption, na.rm = TRUE), .groups = "drop_last") %>%
-  slice_max(order_by = total_consumption, n = 1, with_ties = FALSE) %>%
+top5_per_food <- fc %>%
+  group_by(food_category) %>%
+  slice_max(order_by = consumption, n = 5, with_ties = FALSE) %>%
   ungroup()
+top5_per_food
 
-top_country_per_food
-
-ggplot(top_country_per_food, aes(x = total_consumption, y = reorder(food_category, total_consumption), color = country)) +
-  geom_point(size = 4) +
-  geom_segment(aes(x = 0, xend = total_consumption, y = food_category, yend = food_category), color = "gray") +
+ggplot(top5_per_food, aes(x = reorder(country, consumption), y = consumption, fill = country)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  facet_wrap(~ food_category, scales = "free_y") +
   labs(
-    title = "Top Consuming Country for Each Food Category",
-    x = "Consumption",
-    y = "Food Category",
-    color = "Country"
+    title = "Top 5 Consuming Countries per Food Category",
+    x = "Country",
+    y = "Consumption"
   ) +
-  theme_minimal(base_size = 12)
+  theme_minimal(base_size = 11)
 
 ```
 
 
 8. Research question 3 what is the consumption for each food
 ```{r}
-library(dplyr)
 
-food_consumption_per_country <- fc %>%
-  group_by(food_category, country) %>%
-  summarise(total_consumption = sum(consumption, na.rm = TRUE), .groups = "drop")
+consumption_map_data <- fc %>%
+  group_by(country, food_category) %>%
+  summarise(total_consumption = sum(consumption, na.rm = TRUE)) %>%
+  ungroup()
+consumption_map_data
 
-food_consumption_per_country
-
-ggplot(food_consumption_per_country, aes(x = reorder(food_category, total_consumption), y = total_consumption)) +
-  geom_col(fill = "steelblue") +
-  coord_flip() +
+world <- ne_countries(scale = "medium", returnclass = "sf")
+map_data <- left_join(world, consumption_map_data, by = c("name" = "country"))
+ggplot(map_data) +
+  geom_sf(aes(fill = total_consumption), color = "white", size = 0.1) +
+  scale_fill_viridis_c(option = "C", na.value = "gray90") +
+  facet_wrap(~ food_category) +
   labs(
-    title = "Total Global Consumption by Food Category",
-    x = "Food Category",
-    y = "Total Consumption"
+    title = "Total Food Consumption by Country and Food Category",
+    fill = "Total Consumption"
   ) +
-  theme_minimal(base_size = 12)
+  theme_minimal()
 
 ```
 
